@@ -44,6 +44,9 @@ function showTemperature(response) {
   ).innerHTML = `Feels like ${feelsLikeElement}°C`;
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
+  document.querySelector(
+    "#humidity"
+  ).innerHTML = `Humidity: ${response.data.main.humidity}%`;
   console.log(response.data);
 }
 
