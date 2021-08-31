@@ -24,16 +24,16 @@ h2 {
 }
 h1,
 h2,
-p,
-small {
+p {
+  margin: 0 auto;
   color: darkgray;
 }
-p,
 small {
-  margin: 0 auto;
   line-height: 1;
 }
-
+#description {
+  font-size: 12px;
+}
 .sun-icon {
   color: yellow;
   font-size: 80px;

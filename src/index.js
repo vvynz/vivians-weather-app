@@ -34,10 +34,17 @@ function inputCity(city) {
 }
 
 function showTemperature(response) {
+  let feelsLikeElement = Math.round(response.data.main.feels_like);
   document.querySelector("#user-display-city").innerHTML = response.data.name;
   document.querySelector("#current-temp").innerHTML = `${Math.round(
     response.data.main.temp
   )} °C`;
+  document.querySelector(
+    "#temp-feel-like"
+  ).innerHTML = `Feels like ${feelsLikeElement}°C`;
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].description;
+  console.log(response.data);
 }
 
 function userSubmit(event) {
