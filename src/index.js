@@ -35,6 +35,7 @@ function inputCity(city) {
 
 function showTemperature(response) {
   let feelsLikeElement = Math.round(response.data.main.feels_like);
+  let iconElement = document.querySelector("#weather-icon");
   document.querySelector("#user-display-city").innerHTML = response.data.name;
   document.querySelector("#current-temp").innerHTML = `${Math.round(
     response.data.main.temp
@@ -47,7 +48,10 @@ function showTemperature(response) {
   document.querySelector(
     "#humidity"
   ).innerHTML = `Humidity: ${response.data.main.humidity}%`;
-  console.log(response.data);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function userSubmit(event) {

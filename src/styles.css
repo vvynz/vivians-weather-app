@@ -34,8 +34,7 @@ small {
 #description {
   font-size: 12px;
 }
-.sun-icon {
-  color: yellow;
+#weather-icon {
   font-size: 80px;
   margin: 15px 0;
 }
