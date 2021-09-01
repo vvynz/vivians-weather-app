@@ -36,10 +36,13 @@ function inputCity(city) {
 function showTemperature(response) {
   let feelsLikeElement = Math.round(response.data.main.feels_like);
   let iconElement = document.querySelector("#weather-icon");
+
+  celsiusTemperature = response.data.main.temp;
+
   document.querySelector("#user-display-city").innerHTML = response.data.name;
   document.querySelector("#current-temp").innerHTML = `${Math.round(
-    response.data.main.temp
-  )} °C`;
+    celsiusTemperature
+  )}`;
   document.querySelector(
     "#temp-feel-like"
   ).innerHTML = `Feels like ${feelsLikeElement}°C`;
@@ -79,5 +82,30 @@ searchForm.addEventListener("click", userSubmit);
 
 let currentBtn = document.querySelector("#current-btn");
 currentBtn.addEventListener("click", getCurrentLocation);
+
+let celsiusTemperature = null;
+
+function showFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let temperatureElement = document.querySelector("#current-temp");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function showCelsius(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#current-temp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", showFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", showCelsius);
 
 inputCity("Toronto");
