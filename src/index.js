@@ -36,6 +36,7 @@ function inputCity(city) {
 function showTemperature(response) {
   let feelsLikeElement = Math.round(response.data.main.feels_like);
   let iconElement = document.querySelector("#weather-icon");
+  let windElement = Math.round(response.data.wind.speed);
 
   celsiusTemperature = response.data.main.temp;
 
@@ -55,6 +56,7 @@ function showTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  document.querySelector("#windSpeed").innerHTML = `Wind: ${windElement} km/h`;
 }
 
 function userSubmit(event) {
@@ -108,4 +110,4 @@ fahrenheitLink.addEventListener("click", showFahrenheit);
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", showCelsius);
 
-inputCity("Toronto");
+inputCity("Tokyo");
