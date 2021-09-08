@@ -11,86 +11,84 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <script src="https://kit.fontawesome.com/1193019beb.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <link href="src/styles.css" rel="stylesheet" type="text/css"/>
+    <script
+      src="https://kit.fontawesome.com/1193019beb.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="src/styles.css" rel="stylesheet" type="text/css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="card">
-  <div class="card-body weather-app">
-    <div class="container">
-      <form id="city-form">
-        <div class="row">
-          <div class="col" col-6>
-        <div class="form-group">
-          <input
-            type="text"
-            class="form-control"
-            id="example-city"
-            placeholder="Enter in a city"
-            autofocus
-          />
-          </div>
+      <div class="card-body weather-app">
+        <div class="container">
+          <form id="city-form">
+            <div class="row">
+              <div class="col" col-6>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="example-city"
+                    placeholder="Enter in a city"
+                    autofocus
+                  />
+                </div>
+              </div>
+
+              <div class="col" col-3>
+                <button
+                  type="submit"
+                  class="btn btn-outline-primary"
+                  id="search-btn"
+                >
+                  Search
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-success"
+                  id="current-btn"
+                >
+                  Current
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
-        <div class="col" col-3>
-        <button type="submit" class="btn btn-outline-primary" id="search-btn">Search</button>
-        <button type="button" class="btn btn-outline-success" id="current-btn">Current</button>
-      </form>
       </div>
-    </div>
-    </div>
-  </br>
-    <div class="row">
-      <div class="col current-display">
-        <h1 id ="user-display-city">Toronto</h1>
-        <p class="current-day" id ="today-date">July 28, 12:50 PM </p>
-        <p id="description">Clear skies</p>
-        <img src="" alt="Clear" id="weather-icon"></i>
-        <h2><span id="current-temp">22 </span> <a href="#" id ="celsius" class="active">°C</a> |
-           <a href="#" id="fahrenheit">°F</a>
-        </h2>
-        <p class="temp-feels" id="temp-feel-like">Feels like 23°C</p> 
-        <small><p id="humidity">Humidity: 10%</p></small>
-        <small><p id="windSpeed">Wind*: 10 KM/H</p></small>
-        <small><p id="precipitation">40mm of precipitation/ hour</p></small>
+
+      <div class="row">
+        <div class="col current-display" col-6>
+          <h1 id="user-display-city">Toronto</h1>
+          <p class="current-day" id="today-date">July 28, 12:50 PM</p>
+          <p id="description">Clear skies</p>
+          <img src="" alt="Clear" id="weather-icon" />
+        </div>
+        <div class="col-6">
+          <h2>
+            <span id="current-temp">22 </span>
+            <a href="#" id="celsius" class="active">°C</a> |
+            <a href="#" id="fahrenheit">°F</a>
+          </h2>
+          <p class="temp-feels" id="temp-feel-like">Feels like 23°C</p>
+          <small><p id="humidity">Humidity: 10%</p></small>
+          <small><p id="windSpeed">Wind*: 10 KM/H</p></small>
+        </div>
       </div>
-      <div class="col upcoming-display">
-        <ul class="list-group">
-           <li class="list-group-item">
-             <span class="weather-icons">
-               <i class="fas fa-cloud-rain rain-icon"></i>
-               </span>
-                Thu, July 29 22°C Rain</li>
-             <li class="list-group-item"> 
-               <span class="weather-icons">
-                 <i class="far fa-sun sun-icon2"></i>
-                 </span>
-             Fri, July 30 20°C Mostly sunny</li>
-           <li class="list-group-item">
-             <span class="weather-icons">
-             <i class="fas fa-cloud-sun cloud-icon"></i>
-             </span>
-              Sat, July 31 22°C Mostly cloudy</li>
-           <li class="list-group-item">
-             <span class="weather-icons">
-           <i class="fas fa-cloud-showers-heavy storm-icon"></i>
-           </span>
-           Sun, Aug 1 21°C Scattered thunderstorms</li>
-           <li class="list-group-item">
-             <span class="weather-icons">
-             <i class="far fa-sun sun-icon2"></i>
-             </span>
-              Mon, Aug 2 22°C Mostly sunny</li>
-</ul>
-      </div>
+      <div class="forecast-display" id="forecast"></div>
     </div>
-    </div>
-</div>
     <script src="src/index.js"></script>
-</br>
-<small><a href="https://github.com/vvynz/vivians-weather-app">Open-source code</a> by Vivian Zhang </small>
+    <small
+      ><a href="https://github.com/vvynz/vivians-weather-app"
+        >Open-source code</a
+      >
+      by Vivian Zhang
+    </small>
   </body>
 </html>

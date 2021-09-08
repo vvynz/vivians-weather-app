@@ -59,6 +59,45 @@ function showTemperature(response) {
   document.querySelector("#windSpeed").innerHTML = `Wind: ${windElement} km/h`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  console.log(response.data.daily);
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
+      <div class="col-2">
+      <div class="forecast-date">${formatDay(forecastDay.dt)}</div>
+      <img src="http://openweathermap.org/img/wn/${
+        forecastDay.weather[0].icon
+      }@2x.png" alt="" />
+      <div class="forecast-temperature"> ${Math.round(
+        forecastDay.temp
+      )} °C</div>
+      <div class="forecast-description>${
+        forecastDay.weather[0].description
+      }</div>
+      </div>
+      `;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function userSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#example-city").value;
@@ -110,4 +149,4 @@ fahrenheitLink.addEventListener("click", showFahrenheit);
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", showCelsius);
 
-inputCity("Tokyo");
+inputCity("Toronto");
