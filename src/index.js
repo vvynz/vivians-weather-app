@@ -57,6 +57,15 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   document.querySelector("#windSpeed").innerHTML = `Wind: ${windElement} km/h`;
+
+  getForecast(response.data.coord);
+}
+
+function getForecast(coordinates) {
+  let apiKey = "1f485c022e4af72c068b4973496c26cc";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function formatDay(timestamp) {
@@ -78,18 +87,17 @@ function displayForecast(response) {
     if (index < 5) {
       forecastHTML =
         forecastHTML +
-        `
-      <div class="col-2">
+        `<div class="col-2">
       <div class="forecast-date">${formatDay(forecastDay.dt)}</div>
       <img src="http://openweathermap.org/img/wn/${
         forecastDay.weather[0].icon
-      }@2x.png" alt="" />
+      }@2x.png" alt="" width="50"/>
       <div class="forecast-temperature"> ${Math.round(
-        forecastDay.temp
+        forecastDay.temp.day
       )} °C</div>
-      <div class="forecast-description>${
+      <div class ="forecast-description"><small>${
         forecastDay.weather[0].description
-      }</div>
+      }</small></div>
       </div>
       `;
     }
