@@ -39,6 +39,20 @@ p {
 small {
   line-height: 1;
 }
+
+#current-temp {
+  font-size: 35px;
+  font-weight: 500;
+  color: darkgray;
+}
+
+#temperature-units {
+  position: relative;
+  bottom: 12px;
+  left: 5px;
+  color: darkgray;
+  font-size: 18px;
+}
 #description {
   font-size: 12px;
 }
