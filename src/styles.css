@@ -1,13 +1,46 @@
 body {
   font-family: "Noto Sans KR", sans-serif;
   padding: 60px;
-  max-width: 700px;
+  max-width: 680px;
+  display: block;
+}
+.card {
+  background-color: #f9f9f9;
+  border-style: solid;
+}
+.card-body {
+  border-color: #a393eb;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-outline-primary {
+  border-color: #a393eb;
+  color: #a393eb;
+  transition: all 200ms ease-in-out;
+}
+
+.btn-outline-primary:hover {
+  background-color: #a393eb;
+  border-color: #a393eb;
+  color: white;
+}
+
+.btn-outline-success {
+  border-color: #5e63b6;
+  color: #5e63b6;
+  transition: all 200ms ease-in-out;
+}
+
+.btn-outline-success:hover {
+  background-color: #5e63b6;
+  border-color: #5e63b6;
+  color: white;
 }
 
 .weather-app {
   margin: auto 12px;
   padding: 15px 12px 15px 45px;
-  border: thin;
   max-width: 750px;
 }
 
@@ -22,63 +55,49 @@ body {
 }
 
 .forecast-display {
-  margin: 0 auto;
-  display: block;
+  margin: 0 20px 30px 90px;
+  color: #a393eb;
 }
-h1,
-h2 {
+
+.forecast-date {
+  color: #5e63b6;
+}
+
+h1 {
   font-weight: bold;
   margin-bottom: 7px;
+  color: #a393eb;
 }
-h1,
-h2,
+
 p {
   margin: 0 auto;
-  color: darkgray;
+  color: #5e63b6;
 }
 small {
   line-height: 1;
+  color: #5e63b6;
 }
 
 #current-temp {
   font-size: 35px;
   font-weight: 500;
-  color: darkgray;
+  color: #a393eb;
 }
 
 #temperature-units {
   position: relative;
-  bottom: 12px;
+  bottom: 40px;
   left: 5px;
-  color: darkgray;
+  color: #a393eb;
   font-size: 18px;
 }
 #description {
   font-size: 12px;
 }
 #weather-icon {
+  font-size: 90px;
+}
+
+#current-temp {
   font-size: 80px;
-  margin: 15px 0;
-}
-.rain-icon {
-  color: lightskyblue;
-}
-
-.sun-icon2 {
-  color: yellow;
-}
-
-.cloud-icon {
-  color: gray;
-}
-
-.storm-icon {
-  color: darkgray;
-}
-.weather-icons {
-  margin: 5px;
-}
-.list-group-item {
-  color: darkgray;
-  font-weight: lighter;
 }
